@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Feedback</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+
+<body>
+    <!-- Header with Profile -->
+    <header>
+        <div class="profile">
+            <img src="360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg" alt="User Profile" class="profile-pic">
+            <span id="username">Welcome, User</span>
+        </div>
+    </header>
+
+    <!-- Feedback Section -->
+    <div class="feedback-container">
+        <h2>Give Feedback</h2>
+
+        <!-- Company Selection Dropdown -->
+        <label for="company">Select Company:</label>
+        <select id="company" onchange="updateCompanyProblems()">
+            <option value="amazon">Amazon</option>
+            <option value="apple">Apple</option>
+            <option value="uber">Uber</option>
+            <option value="ola">Ola</option>
+            <option value="wipro">Wipro</option>
+            <option value="tech-mahindra">Tech Mahindra</option>
+        </select>
+
+        <!-- Company-specific Problems -->
+        <label for="problem">Problem:</label>
+        <select id="problem">
+            <!-- Dynamically updated based on selected company -->
+        </select>
+
+        <!-- Feedback Questions -->
+        <fieldset>
+            <legend>Additional Questions</legend>
+            <label>Is this issue recurring?</label>
+            <div>
+                <input type="radio" id="recurring-yes" name="recurring" value="yes">
+                <label for="recurring-yes">Yes</label>
+            </div>
+            <div>
+                <input type="radio" id="recurring-no" name="recurring" value="no">
+                <label for="recurring-no">No</label>
+            </div>
+
+            <label>Was the support provided helpful?</label>
+            <div>
+                <input type="radio" id="support-yes" name="support" value="yes">
+                <label for="support-yes">Yes</label>
+            </div>
+            <div>
+                <input type="radio" id="support-no" name="support" value="no">
+                <label for="support-no">No</label>
+            </div>
+        </fieldset>
+
+        <!-- Feedback Textbox -->
+        <label for="feedback">Your Feedback:</label>
+        <textarea id="feedback" rows="4" placeholder="Describe your problem"></textarea>
+
+        <!-- Rating System -->
+        <label for="rating">Rate the service:</label>
+        <!-- <div class="star-rating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+            
+        </div>
+        <input type="hidden" id="rating" value="0"> -->
+        <div class="stars" id="starRating">
+            <span data-value="1">★</span>
+            <span data-value="2">★</span>
+            <span data-value="3">★</span>
+            <span data-value="4">★</span>
+            <span data-value="5">★</span>
+        </div>
+    
+        <p>Your Rating: <span id="ratingValue">0</span>/5</p>
+
+        <!-- File Upload -->
+        <label for="file-upload">Attach supporting files (optional):</label>
+        <input type="file" id="file-upload" multiple accept="image/*,video/*,.pdf,.docx">
+
+        <!-- Submit Button -->
+        <button id="submit-button" onclick="submitFeedback()">Submit Feedback</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Feedback</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
